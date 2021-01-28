@@ -1,4 +1,4 @@
-package ru.job4j.oop;
+package ru.job4j.professions;
 
 public class Engineer extends Profession {
     private int limit;
