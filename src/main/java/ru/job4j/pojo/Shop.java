@@ -1,7 +1,5 @@
 package ru.job4j.pojo;
 
-import javax.lang.model.type.NullType;
-
 public class Shop {
     public static void main(String[] args) {
         Product products[] = new Product[5];
