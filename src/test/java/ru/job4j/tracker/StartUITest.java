@@ -107,7 +107,7 @@ public class StartUITest {
                    "0. Show all" + System.lineSeparator() +
                    "1. Exit" + System.lineSeparator() +
                    "=== Show all items ===" + System.lineSeparator() +
-                   "Item: id=1, name 'some', created [" + item.getCreated() + "]" + System.lineSeparator() +
+                   item.toString() + System.lineSeparator() +
                    "Menu." + System.lineSeparator() +
                    "0. Show all" + System.lineSeparator() +
                    "1. Exit" + System.lineSeparator() +
@@ -134,7 +134,7 @@ public class StartUITest {
                         "0. Find by Name" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
                         "=== Find items by name ===" + System.lineSeparator() +
-                        "Item: id=1, name 'some', created [" + item.getCreated() + "]" + System.lineSeparator() +
+                        item.toString() + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find by Name" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
@@ -161,7 +161,7 @@ public class StartUITest {
                         "0. Find by Id" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
                         "=== Find item by Id ===" + System.lineSeparator() +
-                        "Item: id=1, name 'some', created [" + item.getCreated() + "]" + System.lineSeparator() +
+                        item.toString() + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find by Id" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
