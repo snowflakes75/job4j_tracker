@@ -1,12 +1,16 @@
 package ru.job4j.tracker;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class Tracker {
+public final class Tracker {
+    private static Tracker instance = null;
+
     private final Item[] items = new Item[100];
     private int ids = 1;
     private int size = 0;
+
+    private Tracker() {
+    }
 
     private int indexOf(int id) {
         int rsl = -1;
@@ -17,6 +21,13 @@ public class Tracker {
             }
         }
         return rsl;
+    }
+
+    public static Tracker getInstance() {
+        if (instance == null) {
+            instance = new Tracker();
+        }
+        return instance;
     }
 
     public Item add(Item item) {
