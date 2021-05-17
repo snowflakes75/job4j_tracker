@@ -32,8 +32,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book " +
-                "name= " + name +
-                ", numPage=" + numPage;
+        return "Book " + "name= " + name
+                + ", numPage=" + numPage;
     }
 }

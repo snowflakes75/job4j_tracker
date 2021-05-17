@@ -9,19 +9,18 @@ public class FindEl {
                 break;
             }
         }
-        if (rsl == -1 ) {
+        if (rsl == -1) {
             throw new ElementNotFoundException("not found key");
         }
         return rsl;
     }
 
-    public static boolean sent(String value, String[] abuses) throws ElementAbuseException {
+    public static void sent(String value, String[] abuses) {
         for (String abus : abuses) {
             if (abus.equals(value)) {
                 throw new AbstractMethodError("don't send this " + abus);
             }
         }
-        return true;
     }
 
     public static void process(String[] values, String key, String[] abuses) {
@@ -29,12 +28,8 @@ public class FindEl {
             if (indexOf(values, key) != -1) {
                 sent(key, abuses);
             }
-        } catch (ElementAbuseException ea) {
+        } catch (Exception ea) {
             ea.printStackTrace();
-        } catch (ElementNotFoundException en) {
-            en.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

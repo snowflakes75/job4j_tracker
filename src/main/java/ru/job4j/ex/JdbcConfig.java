@@ -8,7 +8,6 @@ public class JdbcConfig {
         /*load jdbc*/
     }
 
-
     public static void main(String[] args) {
         try {
             load("jdbc://localhost:8080");

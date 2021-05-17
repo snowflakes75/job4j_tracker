@@ -9,10 +9,10 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student " +
-                "fullname - " + fullname +
-                ", group " + group +
-                ", enterDate: " + enterDate;
+        return "Student "
+                + "fullname - " + fullname
+                + ", group " + group
+                + ", enterDate: " + enterDate;
     }
 
     public String getFullname() {

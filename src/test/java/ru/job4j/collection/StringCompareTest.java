@@ -9,9 +9,9 @@ import static org.junit.Assert.*;
 
 public class StringCompareTest {
     @Test
-    public void whenStringsAreEqualThenZero () {
-        StringCompare compare = new StringCompare();
-        int rst = compare.compare(
+    public void whenStringsAreEqualThenZero() {
+        StringCompare stCompare = new StringCompare();
+        int rst = stCompare.compare(
                 "Ivanov",
                 "Ivanov"
         );
@@ -19,9 +19,9 @@ public class StringCompareTest {
     }
 
     @Test
-    public void whenLeftLessThanRightResultShouldBeNegative () {
-        StringCompare compare = new StringCompare();
-        int rst = compare.compare(
+    public void whenLeftLessThanRightResultShouldBeNegative() {
+        StringCompare stCompare = new StringCompare();
+        int rst = stCompare.compare(
                 "Ivanov",
                 "Ivanova"
         );
@@ -29,9 +29,9 @@ public class StringCompareTest {
     }
 
     @Test
-    public void whenLeftGreaterThanRightResultShouldBePositive () {
-        StringCompare compare = new StringCompare();
-        int rst = compare.compare(
+    public void whenLeftGreaterThanRightResultShouldBePositive() {
+        StringCompare stCompare = new StringCompare();
+        int rst = stCompare.compare(
                 "Petrov",
                 "Ivanova"
         );
@@ -39,9 +39,9 @@ public class StringCompareTest {
     }
 
     @Test
-    public void secondCharOfLeftGreaterThanRightShouldBePositive(){
-        StringCompare compare = new StringCompare();
-        int rst = compare.compare(
+    public void secondCharOfLeftGreaterThanRightShouldBePositive() {
+        StringCompare stCompare = new StringCompare();
+        int rst = stCompare.compare(
                 "Petrov",
                 "Patrov"
         );
@@ -49,9 +49,9 @@ public class StringCompareTest {
     }
 
     @Test
-    public void secondCharOfLeftLessThanRightShouldBeNegative(){
-        StringCompare compare = new StringCompare();
-        int rst = compare.compare(
+    public void secondCharOfLeftLessThanRightShouldBeNegative() {
+        StringCompare stCompare = new StringCompare();
+        int rst = stCompare.compare(
                 "Patrova",
                 "Petrov"
         );
