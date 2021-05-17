@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -11,13 +14,25 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class StartUITest {
+    private static Tracker tracker;
+
+    @BeforeClass
+    public static void initTracker() {
+        tracker = Tracker.getInstance();
+    }
+
+    @After
+    public void dropTracker() {
+        tracker.clear();
+    }
+
     @Test
     public void whenCreateItem() {
         Output output = new StubOutput();
         Input in = new StubInput(
                 new String[]{"0", "Item name", "1"}
         );
-        Tracker tracker = Tracker.getInstance();
+        //Tracker tracker = Tracker.getInstance();
         List<UserAction> actions = Arrays.asList(
                 new CreateAction(output),
                 new CloseAction(output)
@@ -32,7 +47,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0", "Item name", "0", "Fix PC", "1"}
         );
-        Tracker tracker = Tracker.getInstance();
+        //Tracker tracker = Tracker.getInstance();
         List<UserAction> actions = Arrays.asList(
                 new CreateAction(output),
                 new CloseAction(output)
@@ -45,7 +60,7 @@ public class StartUITest {
     @Test
     public void whenReplaceItem() {
         Output output = new StubOutput();
-        Tracker tracker = Tracker.getInstance();
+        //Tracker tracker = Tracker.getInstance();
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
         Input in = new StubInput(
@@ -63,7 +78,7 @@ public class StartUITest {
     @Test
     public void whenDeleteItem() {
         Output output = new StubOutput();
-        Tracker tracker = Tracker.getInstance();
+        //Tracker tracker = Tracker.getInstance();
         Item item = tracker.add(new Item("Deleted item"));
         Input in = new StubInput(
                 new String[]{"0", "1", "1"}
@@ -82,7 +97,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0"}
         );
-        Tracker tracker = Tracker.getInstance();
+        //Tracker tracker = Tracker.getInstance();
         List<UserAction> actions = Collections.singletonList(
                 new CloseAction(out)
         );
@@ -101,7 +116,7 @@ public class StartUITest {
                 new String[]{"0", "1"}
         );
         Item item = new Item("some");
-        Tracker tracker = Tracker.getInstance();
+      //  Tracker tracker = Tracker.getInstance();
         tracker.add(item);
         List<UserAction> actions = Arrays.asList(
                 new ShowAction(output),
@@ -128,7 +143,7 @@ public class StartUITest {
                 new String[]{"0", "some", "1"}
         );
         Item item = new Item("some");
-        Tracker tracker = Tracker.getInstance();
+        //Tracker tracker = Tracker.getInstance();
         tracker.add(item);
         List<UserAction> actions = Arrays.asList(
                 new FindByNameAction(output),
@@ -155,7 +170,7 @@ public class StartUITest {
                 new String[]{"0", "1", "1"}
         );
         Item item = new Item("some");
-        Tracker tracker = Tracker.getInstance();
+        //Tracker tracker = Tracker.getInstance();
         tracker.add(item);
         List<UserAction> actions = Arrays.asList(
                 new FindByIdAction(output),
@@ -181,7 +196,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"-1", "0"}
         );
-        Tracker tracker = Tracker.getInstance();
+        //Tracker tracker = Tracker.getInstance();
         List<UserAction> actions = Collections.singletonList(
                 new CloseAction(out)
         );

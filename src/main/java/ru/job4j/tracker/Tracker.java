@@ -75,4 +75,9 @@ public final class Tracker {
         }
         return deleteStatus;
     }
+
+    public void clear() {
+        this.items.clear();
+        this.ids = 1;
+    }
 }

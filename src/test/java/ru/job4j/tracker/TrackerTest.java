@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -11,9 +13,21 @@ import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class TrackerTest {
+    private static Tracker tracker;
+
+    @BeforeClass
+    public static void initTracker() {
+        tracker = Tracker.getInstance();
+    }
+
+    @After
+    public void dropTracker() {
+        tracker.clear();
+    }
+
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
-        Tracker tracker = Tracker.getInstance();
+        //Tracker tracker = Tracker.getInstance();
         Item item = new Item();
         item.setName("test1");
         tracker.add(item);
@@ -23,7 +37,7 @@ public class TrackerTest {
 
     @Test
     public void whenReplace() {
-        Tracker tracker = Tracker.getInstance();
+        //Tracker tracker = Tracker.getInstance();
         Item bug = new Item();
         bug.setName("Bug");
         tracker.add(bug);
@@ -36,7 +50,7 @@ public class TrackerTest {
 
     @Test
     public void whenDelete() {
-        Tracker tracker = Tracker.getInstance();
+        //Tracker tracker = Tracker.getInstance();
         Item bug = new Item();
         bug.setName("Bug");
         tracker.add(bug);
@@ -47,7 +61,7 @@ public class TrackerTest {
 
     @Test
     public void whenSortByHigh() {
-        Tracker tracker = Tracker.getInstance();
+        //Tracker tracker = Tracker.getInstance();
         Item bug = new Item("Bug");
         Item fix = new Item("Z bug");
         Item problem = new Item("A bug");
@@ -61,7 +75,7 @@ public class TrackerTest {
 
     @Test
     public void whenSortByRevers() {
-        Tracker tracker = Tracker.getInstance();
+        //Tracker tracker = Tracker.getInstance();
         Item bug = new Item("Bug");
         Item fix = new Item("Z bug");
         Item problem = new Item("A bug");
