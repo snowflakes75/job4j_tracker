@@ -2,7 +2,17 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс Пользователя
+ *
+ * @author МГ
+ * @version 1
+ */
 public class User {
+    /**
+     * Паспортные данные челевока
+     * Фамилия пользователя
+     */
     private String passport;
     private String username;
 
@@ -11,18 +21,30 @@ public class User {
         this.username = username;
     }
 
+    /**
+     * @return вернут паспортные данные
+     */
     public String getPassport() {
         return passport;
     }
 
+    /**
+     * @param passport Устанавливают паспортные данные
+     */
     public void setPassport(String passport) {
         this.passport = passport;
     }
 
+    /**
+     * @return фамилию пользователя
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * @param username устанавливают фамилию пользователя
+     */
     public void setUsername(String username) {
         this.username = username;
     }

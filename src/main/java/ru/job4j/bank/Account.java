@@ -2,7 +2,17 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Аккаунт пользователя в банковской системе
+ *
+ * @author MГ
+ * @version 1
+ */
 public class Account {
+    /**
+     * requisite - реквизиты счета
+     * balance - баланс счета
+     */
     private String requisite;
     private double balance;
 
@@ -11,10 +21,16 @@ public class Account {
         this.balance = balance;
     }
 
+    /**
+     * @return вернет реквизиты счета
+     */
     public String getRequisite() {
         return requisite;
     }
 
+    /**
+     * @param requisite Устанавливает реквизиты счета
+     */
     public void setRequisite(String requisite) {
         this.requisite = requisite;
     }

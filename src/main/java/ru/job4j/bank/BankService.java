@@ -5,13 +5,33 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Класс имулирующий работу банковского сервиса
+ *
+ * @author MГ
+ * @version 1
+ */
 public class BankService {
+    /**
+     * Мапа хранящия юзера и связанных с ним аккаунты
+     */
     private Map<User, List<Account>> users = new HashMap<>();
 
+    /**
+     * Метод добавдляющий в ИС пользователя
+     *
+     * @param user - пользователь для добавления
+     */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<Account>());
     }
 
+    /**
+     * Добавить аккаунт к пользователю
+     *
+     * @param passport - паспорт
+     * @param account  - аккаунт который необходимо привязать
+     */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
         if (user != null && !users.get(user).contains(account)) {
@@ -19,6 +39,12 @@ public class BankService {
         }
     }
 
+    /**
+     * Поиск пользователя по паспорту
+     *
+     * @param passport паспорт пользователя для поиска
+     * @return верент пользователя
+     */
     public User findByPassport(String passport) {
         for (User key : users.keySet()) {
             if (key.getPassport().equals(passport)) {
@@ -28,6 +54,13 @@ public class BankService {
         return null;
     }
 
+    /**
+     * Вернет аккаунт по реквизиту счета
+     *
+     * @param passport  паспорт
+     * @param requisite реквизит счета
+     * @return Подходящий аккаунт или null, если такого нету
+     */
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -40,6 +73,17 @@ public class BankService {
         return null;
     }
 
+    /**
+     * Метод эмулирующий транзакцию между счетами
+     *
+     * @param srcPassport   - паспортные данные отправителя
+     * @param srcRequisite  - реквизиты отправителя
+     * @param destPassport  = паспортные данные получателя
+     * @param destRequisite = реквизиты получателя
+     * @param amount        - сумма перевода
+     * @return результат передачи денег, вернет false если баланс не позволяет
+     * совершить транзакцию
+     */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
