@@ -18,8 +18,12 @@ public class ShowAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         this.out.println("=== Show all items ===");
         List<Item> items = tracker.findAll();
-        for (Item item : items) {
-            this.out.println(item);
+        if (items.size() > 0) {
+            for (Item item : items) {
+                this.out.println(item);
+            }
+        } else {
+            this.out.println("Хранилище еще не содержит заявок");
         }
         return true;
     }
