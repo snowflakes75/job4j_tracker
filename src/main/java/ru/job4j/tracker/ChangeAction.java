@@ -17,7 +17,8 @@ public class ChangeAction implements UserAction {
         this.out.println("=== Edit item ===");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
-        if (tracker.replace(input.askInt("Enter id"), item)) {
+        int id = input.askInt("Enter id");
+        if (tracker.replace(id, item)) {
             this.out.println("Success");
         } else {
             this.out.println("Fail");
