@@ -18,23 +18,13 @@ public class PhoneDictionary {
      * @return Список подощедщих пользователей.
      */
     public ArrayList<Person> find(String key) {
-        /*ArrayList<Person> result = new ArrayList<>();
-        for (Person person : persons) {
-            if (person.getName().equals(key)
-                    || person.getSurname().equals(key)
-                    || person.getPhone().equals(key)
-                    || person.getAddress().equals(key)) {
-                result.add(person);
-            }
-        }*/
 
-        Predicate<Person> combine = person -> {
-            Optional<Boolean> result = Optional.of(person.getName().equals(key))
-                    .or(() -> Optional.of(person.getSurname().equals(key)))
-                    .or(() -> Optional.of(person.getPhone().equals(key))
-                            .or(() -> Optional.of(person.getAddress().equals(key))));
-            return result.get();
-        };
+        Predicate<Person> checkEqName = person -> person.getName().equals(key);
+        Predicate<Person> checkEqSurname = person -> person.getSurname().equals(key);
+        Predicate<Person> checkEqPhone = person -> person.getPhone().equals(key);
+        Predicate<Person> checkEqAddress = person -> person.getAddress().equals(key);
+
+        Predicate<Person> combine = checkEqName.or(checkEqSurname).or(checkEqPhone).or(checkEqAddress);
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
             if (combine.test(person)) {
