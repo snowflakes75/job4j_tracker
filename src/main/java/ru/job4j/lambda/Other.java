@@ -26,8 +26,7 @@ public class Other {
     public List<Double> diapason(int start, int end, Function<Double, Double> func) {
         List<Double> arr = new ArrayList<>();
         for (int i = start; i < end; i++) {
-            double x = i;
-            arr.add(func.apply(Double.valueOf(x)));
+            arr.add(func.apply((double) i));
         }
         return arr;
     }

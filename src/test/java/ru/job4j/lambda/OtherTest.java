@@ -18,7 +18,7 @@ public class OtherTest {
     }
 
     @Test
-    public void whenLinearFunctionQvadraResults() {
+    public void whenLinearFunctionQuadraticResults() {
         Other function = new Other();
         List<Double> result = function.diapason(1, 3, x -> 2 * x * x + 1);
         List<Double> expected = Arrays.asList(3D, 9D);
@@ -26,10 +26,10 @@ public class OtherTest {
     }
 
     @Test
-    public void whenLinearFunctionPocasaltResults() {
+    public void whenLinearFunctionExpResults() {
         Other function = new Other();
-        List<Double> result = function.diapason(2, 4, x -> Math.pow(x, 2) + 1);
-        List<Double> expected = Arrays.asList(5D, 10D);
+        List<Double> result = function.diapason(2, 4, x -> Math.pow(2, x) + 1);
+        List<Double> expected = Arrays.asList(5D, 9D);
         assertThat(result, is(expected));
     }
 }
