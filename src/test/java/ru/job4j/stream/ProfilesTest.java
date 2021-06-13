@@ -17,4 +17,14 @@ public class ProfilesTest {
         List<Address> addresses = profilesAddress.collect(profiles);
         assertThat(List.of(pr1.getAddress(), pr2.getAddress()), is(addresses));
     }
+
+    @Test
+    public void whenFindDistinctAddress() {
+        Profiles profilesAddress = new Profiles();
+        Profile pr1 = new Profile(new Address("London", "Baker Street", 221, 0xB));
+        Profile pr2 = new Profile(new Address("Moscow", "Korovinskoe", 41, 0));
+        List<Profile> profiles = List.of(pr1, pr2, pr1);
+        List<Address> addresses = profilesAddress.collectDistinct(profiles);
+        assertThat(List.of(pr1.getAddress(), pr2.getAddress()), is(addresses));
+    }
 }
