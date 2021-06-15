@@ -1,7 +1,6 @@
 package ru.job4j.search;
 
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.function.Predicate;
 
 public class PhoneDictionary {
@@ -24,9 +23,9 @@ public class PhoneDictionary {
         Predicate<Person> checkEqPhone = person -> person.getPhone().equals(key);
         Predicate<Person> checkEqAddress = person -> person.getAddress().equals(key);
 
-        Predicate<Person> combine = checkEqName.or(checkEqSurname).or(checkEqPhone).or(checkEqAddress);
+        var combine = checkEqName.or(checkEqSurname).or(checkEqPhone).or(checkEqAddress);
         ArrayList<Person> result = new ArrayList<>();
-        for (Person person : persons) {
+        for (var person : persons) {
             if (combine.test(person)) {
                 result.add(person);
             }
