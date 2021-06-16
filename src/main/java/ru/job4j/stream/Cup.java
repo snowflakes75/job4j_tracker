@@ -9,13 +9,12 @@ public class Cup {
 
     @Override
     public String toString() {
-        return "Cup{" +
-                "capacity=" + capacity +
-                ", model='" + model + '\'' +
-                ", material='" + material + '\'' +
-                ", hSticker=" + hSticker +
-                ", code=" + code +
-                '}';
+        return "Cup{"
+                + "capacity=" + capacity
+                + ", model='" + model + '\''
+                + ", material='" + material + '\''
+                + ", hSticker=" + hSticker
+                + ", code=" + code + '}';
     }
 
     static class Builder {

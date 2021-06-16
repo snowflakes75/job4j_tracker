@@ -34,8 +34,7 @@ public class Student {
             return false;
         }
         Student student = (Student) o;
-        return score == student.score &&
-                Objects.equals(surname, student.surname);
+        return score == student.score && Objects.equals(surname, student.surname);
     }
 
     @Override
