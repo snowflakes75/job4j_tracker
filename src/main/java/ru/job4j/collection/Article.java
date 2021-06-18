@@ -9,8 +9,8 @@ public class Article {
         boolean generated = true;
         Set<String> text = new HashSet<>(
                 Arrays.asList(
-                        origin.replaceAll("[.,!]","").split(" ")));
-        String[] search = line.replaceAll("[.,!]","").split(" ");
+                        origin.replaceAll("[.,!]", "").split(" ")));
+        String[] search = line.replaceAll("[.,!]", "").split(" ");
         for (String st : search) {
             if (!text.contains(st)) {
                 generated = false;
