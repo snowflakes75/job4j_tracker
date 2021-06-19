@@ -8,12 +8,11 @@ public class FreezeStr {
         boolean same = false;
         Map<String, Integer> dc = new HashMap<>();
         String[] arrLeft = left.split("");
-        for (int i = 0; i < arrLeft.length; i++) {
-            if (!dc.containsKey(arrLeft[i])) {
-                dc.put(arrLeft[i], 1);
+        for (String s : arrLeft) {
+            if (!dc.containsKey(s)) {
+                dc.put(s, 1);
             } else {
-                int num = dc.get(arrLeft[i]);
-                dc.put(arrLeft[i], ++num);
+                dc.put(s, dc.get(s) + 1);
             }
         }
         String[] arrRight = right.split("");
@@ -23,8 +22,7 @@ public class FreezeStr {
             } else if (dc.get(st) == 1) {
                 dc.remove(st);
             } else if (dc.get(st) > 1) {
-                int num = dc.get(st);
-                dc.put(st, --num);
+                dc.put(st, dc.get(st) - 1);
             }
         }
         return dc.isEmpty();
