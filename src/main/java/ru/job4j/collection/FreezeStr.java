@@ -15,6 +15,7 @@ public class FreezeStr {
                 dc.put(s, dc.get(s) + 1);
             }
         }
+
         String[] arrRight = right.split("");
         for (String st : arrRight) {
             if (!dc.containsKey(st)) {
