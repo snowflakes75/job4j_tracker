@@ -31,6 +31,7 @@ public class Analyze {
                         Collectors.averagingDouble(Subject::getScore)))
                 .entrySet().stream()
                 .map(t -> new Tuple(t.getKey(), t.getValue()))
+                .sorted((t1, t2) -> t2.getName().compareTo(t1.getName()))
                 .collect(Collectors.toList());
     }
 

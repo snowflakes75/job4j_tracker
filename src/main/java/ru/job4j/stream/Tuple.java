@@ -11,6 +11,10 @@ public class Tuple {
         this.score = score;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public double getScore() {
         return score;
     }
